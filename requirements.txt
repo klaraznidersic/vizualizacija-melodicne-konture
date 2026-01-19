@@ -1,0 +1,8 @@
+music21
+pandas
+numpy
+scipy
+plotly
+matplotlib
+seaborn
+nicegui
