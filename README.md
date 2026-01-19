@@ -2,7 +2,7 @@
 
 Pred uporabo se prepričajte, da je v vašem okolju nameščeno:
 * **Python 3.x**
-* Potrebne zunanje knjižnice (navedene v `requirements.txt`)
+* Zunanje knjižnice (navedene v `requirements.txt`)
 
 
 1. **Klonirajte repozitorij:**
