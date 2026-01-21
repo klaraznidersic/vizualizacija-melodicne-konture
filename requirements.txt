@@ -6,3 +6,5 @@ plotly
 matplotlib
 seaborn
 nicegui
+xlsxwriter
+openpyxl

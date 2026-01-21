@@ -777,7 +777,7 @@ def main_page():
         render_dashboard.refresh()
 
     # Pretvorba podatkov v xlsx tabelo
-    def export_graph_data_to_excel(song):        
+    def handle_graph_data_export(song):        
         filename = f"exports/{song['title']}_podatki.xlsx"
         
         with pd.ExcelWriter(filename, engine='xlsxwriter') as writer:
@@ -795,11 +795,6 @@ def main_page():
         print(f"Datoteka shranjena v: {os.path.abspath(filename)}")
         with open(filename, 'rb') as f:
             return f.read()
-
-    # Shranjevanje xlsx tabele
-    def handle_graph_data_export(song):
-        excel_data = export_graph_data_to_excel(song)
-        ui.download(excel_data, filename=f"{song['title']}_tocke_grafov.xlsx")
     
     ######################################################
     # GRADNIKI PRIKAZOVALNIKA
