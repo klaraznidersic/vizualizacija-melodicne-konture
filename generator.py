@@ -161,6 +161,8 @@ def extract_metadata(elements, stream):
 
 ### Adamsovi tipi kontur
 
+#### TODO
+
 CONTOUR_SHAPES_ADAMS = {
     "S1 D0 R0": [8, 2],
     "S2 D0 R0": [5, 5],
@@ -178,9 +180,9 @@ CONTOUR_SHAPES_ADAMS = {
     "S2 D2 R1": [5, 10, 0, 5],
     "S3 D2 R1": [2, 10, 0, 8],
     
-    "S1 D2 R2": [8, 0, 10, 2],
+    "S1 D2 R2": [2, 0, 10, 8],
     "S2 D2 R2": [5, 0, 10, 5],
-    "S3 D2 R2": [2, 0, 10, 8],
+    "S3 D2 R2": [8, 0, 10, 2],
 }
 
 # Ikone za tip konture 
@@ -452,6 +454,9 @@ def load_data():
 
 # Shrani vse metapodatke v skupno xlsx datoteko
 def export_metadata(songs):
+    if not os.path.isdir('exports'):
+        os.mkdir('exports')
+        
     filename = 'exports/Metapodatki.xlsx'
     all_rows =[]
     column_mapping = {
@@ -772,9 +777,7 @@ def main_page():
         render_dashboard.refresh()
 
     # Pretvorba podatkov v xlsx tabelo
-    def export_graph_data_to_excel(song):
-        if not os.path.exists('exports'):
-            os.makedirs('exports')
+    def export_graph_data_to_excel(song):        
         filename = f"exports/{song['title']}_podatki.xlsx"
         
         with pd.ExcelWriter(filename, engine='xlsxwriter') as writer:
